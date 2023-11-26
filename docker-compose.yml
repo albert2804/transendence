@@ -25,6 +25,7 @@ services:
     build: ./backend
     volumes:
       - ./backend/src:/usr/src/app
+      - ./backend/migrations.sh:/migrations.sh
     environment:
       PYTHONUNBUFFERED: 1
       DISABLE_PIP_VERSION_CHECK: 1
@@ -35,7 +36,7 @@ services:
     depends_on:
       - backend
     command:
-      ["python3", "transcendence/manage.py", "migrate"]
+      ["/migrations.sh"]
 
   postgres:
     image: postgres:15.5-bookworm

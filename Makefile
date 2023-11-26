@@ -4,6 +4,7 @@ include .env
 
 all: 
 	chmod +x ./postgres/pg_init.sh
+	chmod +x ./backend/migrations.sh
 	docker compose up
 
 kill:
