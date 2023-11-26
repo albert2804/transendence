@@ -3,7 +3,7 @@
 include .env
 
 all: 
-	mkdir -p ${HOME}/goinfre/transcendence/postgres/data
+	chmod +x ./postgres/pg_init.sh
 	docker compose up
 
 kill:

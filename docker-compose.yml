@@ -29,7 +29,7 @@ services:
     volumes:
       - ./postgres/postgresql.conf:/etc/postgresql/postgresql.conf
       - ./postgres/data:/var/lib/postgresl/data
-      - ./postgres/pg_init.sql:/docker-entrypoint-initdb.d/pg_init.sql
+      - ./postgres/pg_init.sh:/docker-entrypoint-initdb.d/pg_init.sh
 
   adminer:
     image: adminer
