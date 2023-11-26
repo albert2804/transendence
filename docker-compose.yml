@@ -21,6 +21,22 @@ services:
     depends_on:
       - postgres
   
+  migrate:
+    build: ./backend
+    volumes:
+      - ./backend/src:/usr/src/app
+    environment:
+      PYTHONUNBUFFERED: 1
+      DISABLE_PIP_VERSION_CHECK: 1
+      PIP_DISABLE_PIP_VERSION_CHECK: 1
+      <<: *env
+    env_file:
+      - .env
+    depends_on:
+      - backend
+    command:
+      ["python3", "transcendence/manage.py", "migrate"]
+
   postgres:
     image: postgres:15.5-bookworm
     restart: unless-stopped
