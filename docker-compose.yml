@@ -36,3 +36,14 @@ services:
     restart: unless-stopped
     ports:
       - 127.0.0.1:8080:8080
+
+
+  # pgadmin:
+  #   image: dpage/pgadmin4:8.0
+  #   environment:
+  #     PGADMIN_DEFAULT_EMAIL: "admin@localhost.de"
+  #   env_file:
+  #     - .env
+  #   restart: unless-stopped
+  #   ports:
+  #     - 127.0.0.1:8080:80
