@@ -12,6 +12,9 @@ kill:
 down:
 	docker compose down
 
+rmvolumes:
+	docker compose down --volumes
+
 clean: down
 	docker system prune
 
@@ -22,3 +25,5 @@ fclean: clean
 	# docker volume prune -f --filter "label=src_*"
 
 re: fclean all
+
+revolumes: rmvolumes all
